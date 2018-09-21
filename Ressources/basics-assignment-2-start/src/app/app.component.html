@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <ol>
+        <li>Add A button which says 'Display Details'</li>
+        <li>Add a paragraph with any content of your choice (e.g. 'Secret Password = tuna')</li>
+        <li>Toggle the displaying of that paragraph with the button created in the first step</li>
+        <li>Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp
+          or simply an incrementing number)</li>
+        <li>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color
+          (ngClass)</li>
+      </ol>
+      <hr>
+      <button class="btn btn-primary" (click)="toggleVisibility()">Display Details</button>
+      <div class="row">
+        <div class="col-md-6" [ngStyle]="{'padding': '15px'}" *ngIf="visible">
+          <p>Les trois petits cochons veulent vivre leur vie et quittent le foyer familial pour tenter leur chance dans
+            le
+            monde. Le premier petit cochon se construit une maison de paille. Le deuxième petit cochon se construit une
+            maison faite de bois. Le troisième petit cochon se construit une maison de briques et de ciment.</p>
+        </div>
+      </div>
+      <div class="row">
+        <ul>
+          <li class="col-md-4" *ngFor="let item of log">
+            <div [ngStyle]="{'background-color': item > 5 ? 'blue' : 'white' }" [ngClass]="{'white': item > 5 ? true : false}">{{item}}</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
